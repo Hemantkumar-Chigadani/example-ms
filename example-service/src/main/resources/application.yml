@@ -13,22 +13,12 @@ logging:
     path: ${LOG_PATH:/tmp}
 
 management:
-#  endpoint:
-#    prometheus:
-#      enabled: true
-#    metrics:
-#      enabled: true
-
   endpoints:
     web:
       cors:
         allowed-origins: ${ALLOWED_ORIGINS:https://localhost}
       exposure:
         include: [health, info, prometheus]
-#  metrics:
-#    export:
-#      prometheus:
-#        enabled: true
   server:
     port: 9081
 
