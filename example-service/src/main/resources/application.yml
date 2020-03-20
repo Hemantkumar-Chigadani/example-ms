@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json
+
+spring:
+  application:
+    name: "example-ms"
+
+logging:
+  file:
+    path: ${LOG_PATH:/tmp}
+
+management:
+#  endpoint:
+#    prometheus:
+#      enabled: true
+#    metrics:
+#      enabled: true
+
+  endpoints:
+    web:
+      cors:
+        allowed-origins: ${ALLOWED_ORIGINS:https://localhost}
+      exposure:
+        include: [health, info, prometheus]
+#  metrics:
+#    export:
+#      prometheus:
+#        enabled: true
+  server:
+    port: 9081
+
+---
+
+spring:
+  profiles: default
+
+---

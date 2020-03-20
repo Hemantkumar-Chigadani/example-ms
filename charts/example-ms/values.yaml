@@ -5,9 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: com.example.ms/example/ms
-  tag: master-latest
-  pullPolicy: IfNotPresent
+  repository: localhost:5000/example-ms
+#  tag: master-latest
+#  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""
@@ -35,7 +36,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 443
+  port: 8080
 
 ingress:
   enabled: true
@@ -44,7 +45,7 @@ ingress:
      kubernetes.io/tls-acme: "true"
   hosts:
     - host: localhost
-      paths: []
+      paths: [/]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -56,11 +57,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
    limits:
-     cpu: 1000m
-     memory: 1024Mi
+     cpu: 500m
+     memory: 256Mi
    requests:
      cpu: 500m
-     memory: 512Mi
+     memory: 256Mi
 
 nodeSelector: {}
 

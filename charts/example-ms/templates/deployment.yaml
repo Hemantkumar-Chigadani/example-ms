@@ -32,19 +32,31 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
 {{- if .Values.livenessProbe }}
+{{/*          startupProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: {{ .Values.livenessProbe.path }}*/}}
+{{/*              port: {{ .Values.livenessProbe.port }}*/}}
+{{/*            failureThreshold: 15*/}}
+{{/*            periodSeconds: 10*/}}
+
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbe.path }}
               port: {{ .Values.livenessProbe.port }}
-            initialDelaySeconds: 60
+            initialDelaySeconds: 120
+            periodSeconds: 5
+
 {{- end }}
+
 {{- if .Values.readinessProbe }}
           readinessProbe:
             httpGet:
               path: {{ .Values.readinessProbe.path }}
               port: {{ .Values.readinessProbe.port }}
-            initialDelaySeconds: 60
+            initialDelaySeconds: 120
+            periodSeconds: 5
 {{- end }}
+
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
