@@ -4,7 +4,7 @@ Ideal micro service with basic structure and skeleton wrt `k8s/helm`
 ## Docker
 `docker build . -f docker/Dockerfile -t localhost:5000/example-ms:master-latest`
 
-##Helm chart
+## Helm chart
 Helm charts details can be found at https://helm.sh/docs/intro/quickstart/
 
 Prerequisites:
