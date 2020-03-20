@@ -17,7 +17,7 @@ Prerequisites:
 Helm chart is found in `/charts` directory
 To create helm chart `helm create exmaple-ms` in charts folder
 
-Sanity check for charts:
+Sanity check of charts:
  * Chart linting: `helm lint --strict ./charts/example-ms`
  * Dry installation of the chart: `helm upgrade --install --namespace hemant example-ms ./charts/example-ms --debug --dry-run`
  
@@ -25,5 +25,5 @@ Sanity check for charts:
 
    * `https://minikube.sigs.k8s.io/docs/tasks/registry/insecure/`
 OR
-   * `https://hasura.io/blog/sharing-a-local-registry-for-minikube-37c7240d0615/`, sample k8s deployment can be found dir /k8s/kube-registry.yml
+   * `https://hasura.io/blog/sharing-a-local-registry-for-minikube-37c7240d0615/`, sample k8s deployment can be found dir rectory /k8s/kube-registry.yml
     
